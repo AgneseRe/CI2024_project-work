@@ -20,7 +20,7 @@ This repository contains an implementation of a Symbolic Regression algorithm, u
   - The evolutionary algorithm iteratively evolves a population of mathematical formulas, represented as full and grow trees;
   - Internal nodes are randomly chosen from function set (arithmetic, trigonometric, logarithmic and exponential operators), while leaves are randomly chosen from terminal set (constants and variables);
   - Each tree contains at least one instance of each variable of the problem dataset;
-  - Each tree must be consistent with the fundamental principles of the mathematical system (*e.g.* no divisions by 0).
+  - Each tree must be consistent with the core principles of the mathematical system (*e.g.* no divisions by 0).
 - **Elitism**
   - To preserve high-quality solutions, the best individuals (a.k.a. *elites*) are directly inserted into the next generation, without being subjected to any change.
 - **Parents Selection**
