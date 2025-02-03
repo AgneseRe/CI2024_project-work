@@ -4,8 +4,9 @@
 ![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)
 ![Python](https://img.shields.io/badge/python-3.10-blue)
 
-## Disclaimer 
- **I worked in a group with my colleagues, listed down under contributers. The official repositary that contains all the previous work together witht the commits done is [CI2024_Project](https://github.com/FerraiuoloP/CI2024_Project).**
+## Project Collaboration
+This project was developed in collaboration with my colleagues, whose GitHub names are listed in the Contributors section below. The full commit history, including contributions from all team members, can be found in the original repository of the [project](https://github.com/FerraiuoloP/CI2024_Project). Here, it is possible to track the entire development process and the evolution of our work.
+
 ## Description
 This repository contains an implementation of a Symbolic Regression algorithm, using a tree-based **Genetic Programming** (GP) evolutionary technique. The algorithm evolves mathematical expressions in order to find the model that best fits a given set of data in the form $(X, y)$. By leveraging *selection*, according to a fitness measure, *mutation* and *crossover*, the SR algorithm generates mathematical formulas that are able to capture the complex patterns present in the input data.
 
@@ -30,12 +31,12 @@ This repository contains an implementation of a Symbolic Regression algorithm, u
 
 ## How it works
 - **Initialization**
-  - A population of individuals (*trees*) is initialized on each island. Depending on the value assigned to the variable `grow_full_ratio`, each island's population is initialized with a number of full trees and grow trees;
+  - A population of individuals (*trees*) is initialized on each island. Depending on the value assigned to the variable `grow_full_ratio`, each island's population is initialized with a number of full trees and grow trees. Although the literature often suggests a grow full ratio of 0.50, the proposed solution adopts a ratio of 0.95. This approach allows for more diverse and flexible initial solutions, leading to better exploration of the search space and avoiding a bloating phenomenon, tipycal of the generation of large trees;
   - In each of the `ISLAND_NUM` islands, there are `ISLAND_POPULATION` individuals.
 - **Selection**
   - Parents are selected based on their fitness (in which measure the mathematical formula represented by the tree fits well the data provided as input), using various strategies (*e.g.* rank-based selection).
 - **Reproduction**
-  - Offsprings are generated through mutation and crossover genetic operators.
+  - Offsprings are generated through mutation and crossover genetic operators (0.65/0.35 ratio).
 - **Evolution**
   - Over the course of generations, populations on the islands evolve and only the best performing trees survive.
 - **Convergence**
@@ -43,17 +44,19 @@ This repository contains an implementation of a Symbolic Regression algorithm, u
 
 ## Project Structure
 The project is organized as follows:
-- `sym_reg.ipynb`
+- `data/`
+  - A folder that contains eight different input problems (*npz* files). Each problem is represented by a dataset that can be used to train and test the model.
+- `src/sym_reg.ipynb`
   - The Jupyter notebook through which it is possible to experiment with Symbolic Regression using Genetic Programming. Thank to parent selection, mutation and crossover genetic operators, it is possible to find a mathematical formula that well fit the given dataset.
   ```python
   x[0] + np.sin(x[1]) / 5   # a simple mathematical formula for problem 0
   ```
-- `tree.py`
+- `src/tree.py`
   - The .py file that contains the **Tree** class, the main component of the project. This class provides methods for generating grow and full trees, methods for computing the fitness and methods for mutation and crossover.
-- `data/`
-  - A folder that contains eight different input problems (*npz* files). Each problem is represented by a dataset that can be used to train and test the model.
-- `pyproject.toml`
+- `src/pyproject.toml`
   - The configuration file containing dependencies and metadata for the project. *Poetry* is used for package management.
+- `s325676.py`
+  - The .py file that contains the formulas for the eight input problems in `data/`.
 
 ## Results
 
@@ -128,12 +131,10 @@ Disclaimer:
 
 ```
 
-
-
-## Other Contributers
+## Contributors
 <table>
   <tr>
-    <td align="center" style="border: none;">
+    <td align="center">
       <a href="https://github.com/AgneseRe">
         <img src="https://github.com/AgneseRe.png" width="50px" style="border-radius: 50%; border: none;" alt=""/>
         <br />
@@ -152,6 +153,13 @@ Disclaimer:
         <img src="https://github.com/GDennis01.png" width="50px" style="border-radius: 50%; border: none;" alt=""/>
         <br />
         <sub>GDennis01</sub>
+      </a>
+    </td>
+    <td align="center" style="border: none;">
+      <a href="https://github.com/XhoanaShkajoti">
+        <img src="https://github.com/XhoanaShkajoti.png" width="50px" style="border-radius: 50%; border: none;" alt=""/>
+        <br />
+        <sub>XhoanaShkajoti</sub>
       </a>
     </td>
   </tr>
