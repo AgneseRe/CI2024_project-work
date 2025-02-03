@@ -1,8 +1,9 @@
 <!-- omit in toc -->
 # Symbolic Regression using Genetic Programming
+![Python](https://img.shields.io/badge/python-3.10-blue)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)
-![Python](https://img.shields.io/badge/python-3.10-blue)
+![Jupyter Notebook](https://img.shields.io/badge/notebook-Jupyter-orange)
 
 ## Project Collaboration
 This project was developed in collaboration with my colleagues, whose GitHub names are listed in the Contributors section below. The full commit history, including contributions from all team members, can be found in the original repository of the [project](https://github.com/FerraiuoloP/CI2024_Project). Here, it is possible to track the entire development process and the evolution of our work.
@@ -12,22 +13,24 @@ This repository contains an implementation of a Symbolic Regression algorithm, u
 
 ## Key Features
 - **Island Model Genetic Algorithm**
-  - The population is divided into a certain number of **subpopulations** (a.k.a. *islands*) which evolve separately and can probablisticly ,occasionaly exchange individuals (a.k.a *migration*) in order to avoid local optima and rapid convergence;
+  - The population is divided into a certain number of **subpopulations** (a.k.a. *islands*) which evolve separately and can occasionaly exchange individuals (a.k.a *migration*) in order to avoid local optima and rapid convergence;
+  - The migration happens in a probablistic way. At every iteration a random individual can be selected to migrate from an island to another one;
   - At each migration event, according to a migration rate parameter, one or more individuals migrate from the source island to another random island, as a way to ensure equal chance of genetic mixing across islands.
 - **Tree-Based Representation**
   - The evolutionary algorithm iteratively evolves a population of mathematical formulas, represented as full and grow trees;
-  - Internal nodes are randomly chosen from function set (arithmetic, trigonometric, logarithmic and exponential operators), while leaves are randomly chosen from terminal set (constants and variables).
-  - Each tree (individual population) is valid for all variables of the set. When calculating the MSE no invalid mathimatical operation is present 
+  - Internal nodes are randomly chosen from function set (arithmetic, trigonometric, logarithmic and exponential operators), while leaves are randomly chosen from terminal set (constants and variables);
+  - Each tree contains at least one instance of each variable of the problem dataset;
+  - Each tree must be consistent with the fundamental principles of the mathematical system (*e.g.* no divisions by 0).
 - **Elitism**
   - To preserve high-quality solutions, the best individuals (a.k.a. *elites*) are directly inserted into the next generation, without being subjected to any change.
 - **Parents Selection**
-  - Different parents selection strategies are implemented. Fitness-proportional, rank based and tournament selection.
+  - Different parents selection strategies are implemented. Fitness-proportional, rank based and tournament selection. If not specified, the default rank-based strategy is used.
 - **Mutation and Crossover**
   - Various mutation mechanisms are implemented. Replaced a subtree with a new one (`mutate_subtree`) or modify a single node (`mutate_single_node`) in the selected parent tree;
   - Combine two different trees for generating new offsprings. This allows the algorithm to explore new regions in the search space, encouraging exploration instead of exploitation.
-- **Other Strategies**
-  - Probabilistic collapsing, collapsing produces equivalent formulas to the one in the beggining , just prunes branches and reduces depth.
-  - Take over detection is applied for when an individual takes over most of the population, the population is trimmed and subsituted with new individuals.   
+- **Takeover Detection**
+  - It is possible that a particularly suitable individual, with an important competitive advantage, dominates the population. Its offspring spread rapidly in the population and genetic diversity decreases. To address this issue, the population is trimmed by keeping alive only unique individuals and re-generating the remaining ones;
+  - In the proposed algorithm, takeover occurs when 50% of the population exhibits the same fitness.  
 
 ## How it works
 - **Initialization**
@@ -60,17 +63,17 @@ The project is organized as follows:
 
 ## Results
 
-Disclaimer: 
-- **Each formula contains at least one instance of each variable.**
-- np operators have been replaced with the basic operators (+,-,/,*) to increase readability
-- A balanced approach between formula complexity (in depth) and MSE has been prioritized.
-- Different hyperparameters have been used during different runs.
+### Important Notes 
+- **Variables Inclusion**: Each formula contains at least one instance of each variable;
+- **Operator Simplification**: To enhance readability, np operators have been replaced with basic operators (+,-,/,*);
+- **Formula Complexity**: A balanced approach between formula complexity (in depth) and MSE has been prioritized;
+- **Hyperparameter Tuning**: Different hyperparameters have been used during different runs.
 
 ### Problem 1
 
 **MSE**: 7.125940794232773e-34
 ```python
-	    np.sin(x[0])
+np.sin(x[0])
 ```
 ### Problem 2
 
