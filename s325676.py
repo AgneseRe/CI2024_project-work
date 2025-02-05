@@ -11,8 +11,8 @@ def f1(x: np.ndarray) -> np.ndarray:
 def f2(x: np.ndarray) -> np.ndarray:
     pass
 
-def f3(x: np.ndarray) -> np.ndarray: ...
-
+def f3(x: np.ndarray) -> np.ndarray:
+    return np.add(np.multiply(np.arctan(np.add(np.arctan(1.9423158330970622), 8.311556888397728)), np.cosh(np.cosh(np.arctan(1.9423158330970622)))), np.negative(np.add(np.add(np.multiply(np.square(x[0]), np.rint(-2.065621497047198)), np.divide(3.503326125821749, np.reciprocal(x[2]))), np.multiply(x[1], np.square(x[1])))))
 
 def f4(x: np.ndarray) -> np.ndarray: ...
 
