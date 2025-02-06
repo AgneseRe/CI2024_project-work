@@ -1,6 +1,6 @@
 <!-- omit in toc -->
 # Symbolic Regression using Genetic Programming
-![Python](https://img.shields.io/badge/python-3.10-blue)
+![Python](https://img.shields.io/badge/python-3.9-blue)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![Contributors](https://img.shields.io/badge/Contributors-4-brightgreen)
 ![Jupyter Notebook](https://img.shields.io/badge/notebook-Jupyter-orange)
