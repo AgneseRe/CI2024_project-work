@@ -72,16 +72,17 @@ The project is organized as follows:
 ### Problem 1
 
 **MSE**: 7.125940794232773e-34
+
 ```python
 np.sin(x[0])
 ```
+
 ### Problem 2
 
-**MSE**: 527338181722.6093
+**MSE**: 6767157331999.958
 
 ```python
-   (((((-62.24357039260542 + (x[0] * x[1])) + ((x[0] * x[1]) + (np.absolute((x[0] * x[1])) - np.cbrt((2.2608535727397623 - ((x[1] * 5.517038333390751) / (5.517038333390751 * x[0]))))))) + ((5.517038333390751 * x[0]) * np.reciprocal((1.5827088050437421 / x[2])))) * (((x[1] * 4.978572892293439) - ((7.885793211722174 * x[2]) / -1.641003402164408)) + (9.63237170280645 * x[0]))) * ((((x[1] * 13.402831545112925) * np.reciprocal((np.cbrt((-3.311360402913107 - np.absolute((x[0] * x[1])))) / x[2]))) + ((x[0] * (2.452219194622391 * x[2])) + 253.6732340675021)) * (((-82.29170605396563 + (x[0] * x[1])) + np.absolute(np.absolute((-9.996265568395703 * x[0])))) / 3.340770779277813)))
-
+(((((x[1] * 1.0133379750665732) * -19.919416233677293) + ((-9.790571207340218 * x[2]) + (-9.735723057413209 * x[2]))) * ((1711.0001133355208 * np.cosh(x[0])) + -40620.92739861885)) + ((-140.73135021910855 - ((x[2] * x[1]) * -10.82318841194864)) * ((36.04153204685458 / (1.0133379750665732 / x[0])) * -216.83639344361913)))
 ```
 
 ### Problem 3
@@ -90,7 +91,6 @@ np.sin(x[0])
 
 ```python
 np.add(np.multiply(np.arctan(np.add(np.arctan(1.9423158330970622), 8.311556888397728)), np.cosh(np.cosh(np.arctan(1.9423158330970622)))), np.negative(np.add(np.add(np.multiply(np.square(x[0]), np.rint(-2.065621497047198)), np.divide(3.503326125821749, np.reciprocal(x[2]))), np.multiply(x[1], np.square(x[1])))))
-
 ```
 
 ### Problem 4
@@ -119,19 +119,17 @@ np.add(np.multiply(np.arctan(np.add(np.arctan(1.9423158330970622), 8.31155688839
 
 ### Problem 7
 
-**MSE**: 38.99323710133896
+**MSE**: 194.70615387010136
 
 ```python
-(np.power(np.power(np.square((x[1]- x[0])),(x[0]/ -5.114345054891183)), ((np.minimum(2.751084069720335, x[0])+ np.remainder(3.1363809696574516, np.remainder(x[1], 0.17997037571963403)))+ (-1.0085421764494056+ np.cos((x[0]/ 4.942315746595467))))) - ((np.remainder(np.remainder(np.floor(x[1]), 0.6599576149135989),((x[0]/ -0.43391122788121095)* x[1]))+ np.remainder(np.cos((x[1]- x[0])),((x[0]/ -0.46832124379688267)* x[0])))+((0.4609674501163781* np.square(x[1]))/(-1.0085421764494056 + np.cos((x[1]- x[0]))))))
+((np.sin((-4.287237004344295 - (x[0] - x[1]))) + np.sin(np.power(1556.6675533539744, (x[0] - x[1])))) * (np.exp((1.6053878748495762 + (x[0] * x[1]))) * np.sin((2232.504710869893 + (x[0] - x[1])))))
 ```
 
 ### Problem 8
 
-**MSE**: 7769.595904034595
-
+**MSE**: 111499.11433959866
 ```python
-   np.minimum(((((np.minimum(np.sinh(x[5]), np.sinh(x[5]))* 9.306755163948337)* np.maximum(np.maximum(np.minimum(np.cosh(x[5]), 18.44238954070858), np.minimum(np.square(x[5]), 15.037856692023084)),(np.minimum(17.6972179719256, np.square(x[5])) + np.minimum(np.square(x[5]), np.absolute(x[5])))))+ np.minimum((np.sinh(x[4])* np.maximum(37.0927078418996, x[3])),((np.maximum(np.sinh(x[5]), 8.680667755883558)/ -3.3592534823799656)+((np.sinh(x[4])* -4.070986083664829) * 8.977972163360176)))) - np.minimum(np.maximum(np.remainder(np.power(np.maximum(3.025150828938454, np.sin(x[1])), (np.remainder(x[4], -4.190526875841163) + 2.5852944295947005)), np.minimum((np.sinh(x[4]) + np.sinh(x[5])),(np.minimum(-6.530635069831985, x[2]) + -15.751711154922196))), (np.maximum(-165.52441838946697, (314.8402983836044 / np.maximum(-4.933777461347297, x[3])))+ ((np.maximum(-9.174199129628121, x[3])* 97.8102957631067)/ -1.5537384634524345))), np.remainder(np.maximum((100.01994107697637 /(x[3]- 2.1332481808545545)), -32.77726592336975), (np.minimum((36.7506213572169 * np.cosh(x[5])), (-4.109412935321963 * np.maximum(-9.62084356692828, x[3]))) * 17.361335511767116)))),((((np.minimum((np.maximum(-9.174199129628121, x[3]) + np.sinh(x[5])), (np.cosh(x[5]) + np.cos(x[5]))) * (np.minimum(9.720508873329518, np.square(x[5])) + np.minimum(4.583029845151287, np.absolute(x[5])))) + (np.maximum((44.82781934259213 / np.absolute(x[5])),(np.absolute(x[5]) + 6.695358044391064)) * np.maximum((np.sinh(x[5]) + np.cos(x[5])), 0.6087079909086857))) * 8.680667755883558) - np.minimum(np.square(np.maximum(-12.43159394773964,(np.minimum(17.6972179719256, np.square(x[5])) + np.minimum(np.square(x[5]), np.absolute(x[5]))))), np.square(np.minimum(np.maximum(np.maximum(np.sinh(x[5]), -2.1085570037841785), np.minimum(np.square(x[5]), np.absolute(x[5]))),(np.minimum(np.sinh(x[5]), np.sinh(x[5])) + -0.0013074377194559617))))))
-
+np.minimum(np.sinh(x[5]) * np.maximum(9.3067551639483366, x[0] / x[0] - 8.1737401391616195) * np.maximum(np.maximum(np.minimum(np.cosh(x[5]), 18.4423895407085805), np.minimum(np.square(x[5]), 15.037856692023084)), np.minimum(17.6972179719256010, np.square(x[5])) + np.minimum(np.square(x[5]), np.absolute(x[5]))) + np.minimum(np.sinh(x[4]) * np.maximum(37.0927078418996027, x[3]), np.maximum(np.sinh(x[5]), 9.720508873329518) / 2.564537561212518 + np.sinh(x[4]) * -36.5491997365694977) - np.minimum(np.maximum(np.remainder(np.power(np.maximum(3.025150828938454, np.sin(x[1])), np.remainder(x[4], -4.190526875841163) + 2.5852944295947005), np.minimum(np.sinh(x[4]) + np.sinh(x[5]), np.minimum(6.530635069831985, x[2]) - 15.751711154922196)), np.maximum(-39.1515397544814214, 314.8402983836045133 / np.maximum(-4.933777461347297, x[3])) + (np.maximum(-9.174199129628121, x[3]) * np.exp(4.583029845151287)) / -1.5537384634524341), np.remainder(np.maximum(100.0199410769763602 / (x[3] - 2.1332481808545545), -32.7772659233697216), np.minimum(36.7506213572168948 * np.cosh(x[5]), -4.109412935321963 * np.maximum(-9.62084356692828, x[3])) * 17.361335511767116)), np.minimum(np.maximum(9.174199129628121, x[3]) + np.sinh(x[5]), np.cosh(x[5]) + np.cos(x[5])) * np.minimum(9.720508873329518, np.square(x[5])) + np.minimum(4.583029845151287, np.absolute(x[5])) + np.maximum(44.8278193425921329 / np.absolute(x[5]), np.absolute(x[5]) + 6.695358044391064) * np.maximum(np.sinh(x[5]) + np.cos(x[5]), -0.7294152703515632) * 8.680667755883558 - np.minimum(np.square(np.maximum(-4.109412935321963 * np.sinh(x[5]), np.minimum(17.6972179719256010, np.square(x[5])) + np.minimum(np.square(x[5]), np.absolute(x[5])) )), np.square(np.minimum(np.maximum(np.maximum(np.sinh(x[5]), -7.8797548932089201), np.minimum(np.square(x[5]), np.absolute(x[5]))), np.sinh(x[5]) +  0.6904692721820371 ))))
 ```
 
 ## Contributors
