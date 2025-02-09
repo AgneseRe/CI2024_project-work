@@ -81,6 +81,8 @@ np.sin(x[0])
 
 **MSE**: 6767157331999.958
 
+An high MSE value that indicates the formula does not accurately represent the relationship between the input and output values. This suggests that the existing relationship between the variables is highly complex, and the algorithm struggles to uncover it. It is worth noting that by adopting a higher number of generations, it would have been possible to achieve lower MSE values, reaching precision up to 12 decimal places, instead of the current 13. However, a particularly high value that would be obtained with a high computational cost, with a runtime exceeding two or three hours.
+
 ```python
 (((((x[1] * 1.0133379750665732) * -19.919416233677293) + ((-9.790571207340218 * x[2]) + (-9.735723057413209 * x[2]))) * ((1711.0001133355208 * np.cosh(x[0])) + -40620.92739861885)) + ((-140.73135021910855 - ((x[2] * x[1]) * -10.82318841194864)) * ((36.04153204685458 / (1.0133379750665732 / x[0])) * -216.83639344361913)))
 ```
