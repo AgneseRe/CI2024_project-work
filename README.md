@@ -65,7 +65,7 @@ The project is organized as follows:
 
 ### Important Notes 
 - **Variables Inclusion**: Each formula contains at least one instance of each variable;
-- **Operator Simplification**: To enhance readability, np operators have been replaced with basic operators (+,-,/,*);
+- **Operator Simplification**: To enhance readability, some NumPy operators have been replaced with basic operators (+,-,/,*);
 - **Formula Complexity**: A balanced approach between formula complexity (in depth) and MSE has been prioritized;
 - **Hyperparameter Tuning**: Different hyperparameters have been used during different runs.
 
