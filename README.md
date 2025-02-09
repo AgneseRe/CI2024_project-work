@@ -64,7 +64,7 @@ The project is organized as follows:
 ## Results
 
 ### Important Notes 
-- **Variables Inclusion**: Each formula contains at least one instance of each variable;
+- **Variables Inclusion**: Each formula contains **at least** one instance of each variable;
 - **Formula Simplification**: To enhance readability, all possible calculations are performed (this justifies the presence of constants outside the predefined range in the formula) and some NumPy operators, i.e. `np.add`, `np.subtract`, `np.multiply`, `np.divide`, have been replaced with the corresponding basic operators (+, -, *, /);
 - **Formula Complexity**: A balanced approach between formula complexity (in depth) and MSE has been prioritized;
 - **Hyperparameter Tuning**: Different hyperparameters have been used during different runs.
