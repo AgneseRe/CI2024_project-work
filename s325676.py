@@ -7,7 +7,7 @@ def f2(x: np.ndarray) -> np.ndarray:
     return (((((x[1] * 1.0133379750665732) * -19.919416233677293) + ((-9.790571207340218 * x[2]) + (-9.735723057413209 * x[2]))) * ((1711.0001133355208 * np.cosh(x[0])) + -40620.92739861885)) + ((-140.73135021910855 - ((x[2] * x[1]) * -10.82318841194864)) * ((36.04153204685458 / (1.0133379750665732 / x[0])) * -216.83639344361913)))
 
 def f3(x: np.ndarray) -> np.ndarray:
-    return np.add(np.multiply(np.arctan(np.add(np.arctan(1.9423158330970622), 8.311556888397728)), np.cosh(np.cosh(np.arctan(1.9423158330970622)))), np.negative(np.add(np.add(np.multiply(np.square(x[0]), np.rint(-2.065621497047198)), np.divide(3.503326125821749, np.reciprocal(x[2]))), np.multiply(x[1], np.square(x[1])))))
+    return np.arctan(np.arctan(1.9423158330970622) + 8.311556888397728) * np.cosh(np.cosh(np.arctan(1.9423158330970622))) - (np.square(x[0]) * np.rint(-2.065621497047198) + 3.503326125821749 / np.reciprocal(x[2]) + x[1] * np.square(x[1]))
 
 def f4(x: np.ndarray) -> np.ndarray:
     return 3.3325688447227532 + (np.cos(x[1]) / 0.1428298184783164) - ((-0.5653322717250981 - x[0]) / -10.9872282724623779)

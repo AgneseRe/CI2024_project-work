@@ -90,7 +90,7 @@ np.sin(x[0])
 **MSE**: 9.059643246177774e-05
 
 ```python
-np.add(np.multiply(np.arctan(np.add(np.arctan(1.9423158330970622), 8.311556888397728)), np.cosh(np.cosh(np.arctan(1.9423158330970622)))), np.negative(np.add(np.add(np.multiply(np.square(x[0]), np.rint(-2.065621497047198)), np.divide(3.503326125821749, np.reciprocal(x[2]))), np.multiply(x[1], np.square(x[1])))))
+np.arctan(np.arctan(1.9423158330970622) + 8.311556888397728) * np.cosh(np.cosh(np.arctan(1.9423158330970622))) - (np.square(x[0]) * np.rint(-2.065621497047198) + 3.503326125821749 / np.reciprocal(x[2]) + x[1] * np.square(x[1]))
 ```
 
 ### Problem 4
