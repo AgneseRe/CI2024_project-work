@@ -27,6 +27,7 @@ class Node:
             return str(int(round(self.value)))  
         else:    
             return str(self.value)
+        
     def clone(self):
         """Creates a deep copy of the current node."""
         new_node = Node(self.node_type, self.value)
@@ -34,7 +35,6 @@ class Node:
         new_node.right = self.right.clone() if self.right else None
         return new_node
     
-
     def to_np_formula_rec(self,use_std_operators=False):
         if self.value is None:
             return None
@@ -63,11 +63,9 @@ class Node:
                     return f"({left} / {right})"
             return f"np.{self.value.__name__}({left}, {right})"
   
-
-
+# --- TREE CLASS ---
 class Tree:
     _VAR_DUP_PROB = 0.1 
-
 
     @staticmethod
     def set_params(unary_ops, binary_ops, n_var, max_const,max_depth,spawn_depth, x_train_norm, y_train_norm, x_test_norm=None, y_test_norm=None):
@@ -82,9 +80,6 @@ class Tree:
         Tree.y_train = y_train_norm
         Tree.x_test = x_test_norm
         Tree.y_test = y_test_norm
-     
-
-
 
     def __init__(self, method="full", require_valid_tree=True, empty=False):
         # Valid tree means a tree that has a computable fitness (no division by zero, no overflow, etc.)
@@ -101,8 +96,6 @@ class Tree:
             if not require_valid_tree:
                 break
             
-    
-    
     def populate_tree_full_method(self):
         leaves = []
         #First create the leaves of the tree. Every variable should be placed in the tree at least once!
@@ -128,7 +121,6 @@ class Tree:
         np.random.shuffle(leaves)
         return build_tree(leaves, 0)
 
-  
     def populate_tree_grow_method(self,max_depth=None,must_include_vars=None): 
         #max_depth and must_include_vars are set if creating a subtree: a tree wtih custom depth and do not need to include all the variables
         # print(f"Creating tree with max_depth:{Tree.max_depth} and spawn_depth:{Tree.spawn_depth}")
@@ -141,7 +133,6 @@ class Tree:
             else:
                 n_leaves = np.random.randint(len(must_include_vars), 2 ** max_depth +1)
 
-      
         leaves = []
 
         if(must_include_vars is None):
@@ -157,7 +148,6 @@ class Tree:
                 leaves.append(Node(NodeType.VAR, value=Tree.vars[value_idx])) 
             else:
                 leaves.append(Node(NodeType.CONST, value=(-Tree.max_const + (Tree.max_const - (-Tree.max_const)) * random.random())))
-
 
         #Then build the tree recursively
         def build_tree(leaves_to_place, current_depth,max_depth=None):
@@ -204,11 +194,7 @@ class Tree:
         if(len(leaves)==0):
             print("Error: no leaves to place!")
    
-        return build_tree(leaves, 0,max_depth=max_depth)
-           
-            
-                              
-                
+        return build_tree(leaves, 0,max_depth=max_depth)        
      
     def print_tree(self):
         self.print_tree_recursive(self.root, 0)
@@ -231,8 +217,6 @@ class Tree:
             var_count[var[0].value] += 1
         return var_count
 
-
-
     def mutate_subtree(self):
         self.age += 1
 
@@ -253,16 +237,13 @@ class Tree:
         diff = {k: variables_tree[k] - subtree_vars[k] for k in Tree.vars}
         #diff is a dictionary that will have 0 as value for each variable that is present ONLY in the subtree. We must include these variables in the new subtree.
         must_include_vars = [k for k,v in diff.items() if v==0]
-       
         
         # res= map(lambda x: variables_tree.remove(x), subtree_vars)
         # next(res)
-    
  
         max_possible_depth = Tree.max_depth - picked_depth
         # print("Max possible depth: ",max_possible_depth)
  
-        
         new_subtree = self.populate_tree_grow_method(max_possible_depth,must_include_vars=must_include_vars)
         if new_subtree is not None:
             picked_node.node_type = new_subtree.node_type
@@ -275,8 +256,6 @@ class Tree:
         new_tree.root = self.root.clone()
         new_tree.fitness = self.fitness
         return new_tree
-
-
 
     def mutate_single_node(self, num_mutations=1):
         self.age += 1
@@ -302,7 +281,6 @@ class Tree:
     #NOTE: the logic of this crossover is kinda convoluted because, while swapping the 2 subtrees, it assures that:
     #1) After the crossover the resulting trees have at least 1 of each variable
     #2) The resulting trees have a depth <= max_depth
-
     def crossover(self, tree2):
         # TODO: increment tree age in crossover for select_parents_fitness_age (?)
         new_tree1 = Tree(empty=True)
@@ -316,13 +294,9 @@ class Tree:
         #shuffle is important because we will iterate over the nodes and pick the first couple of subtrees that we find to be valid
         np.random.shuffle(tree1_nodes)
         np.random.shuffle(tree2_nodes)
-
-        
-        
     
         tree1_var_count = Tree.count_vars(tree1_vars)
         tree2_var_count = Tree.count_vars(tree2_vars)
-
 
         found_subtree1=None
         found_subtree1=None
@@ -378,10 +352,6 @@ class Tree:
         found_subtree1.right, found_subtree2.right = found_subtree2.right, found_subtree1.right
 
         return new_tree1, new_tree2
-
-
-
-
 
     """
     @return: Two lists of tuples. The first list contains the variables in the tree, the second list contains the other nodes.
@@ -439,9 +409,6 @@ class Tree:
     def evaluate_tree(self, x):
         return Tree._evaluate_tree_recursive(self.root, x)
     
- 
-    
-    
     @staticmethod
     def _evaluate_tree_recursive(node, x):
         # Create a unique cache key for this node and input
@@ -472,11 +439,6 @@ class Tree:
                  Tree._memo_cache.popitem() 
         
         return result
-        
-
-
-    
-
 
     def compute_fitness(self,test="train"):
         if(test=="train"):
@@ -496,14 +458,12 @@ class Tree:
         # Exploiting np broadcasting
         y_pred = eval_formula(x_data)  
 
-
         if np.any(np.isnan(y_pred)) or np.any(np.isinf(y_pred)):
             self.fitness = np.inf
             return
 
         #Broadcasting is used to calculate the squared errors
         squared_errors = np.square(y_data - y_pred)
-
    
         self.fitness = np.sum(squared_errors) / x_data.shape[1]
 
@@ -525,8 +485,6 @@ class Tree:
         plt.axis('off')
         draw_node(self.root, 0, 0, 20, 2)
         plt.show()
-
-
     
     def to_np_formula(self,use_std_operators=False):
         return self.root.to_np_formula_rec(use_std_operators=use_std_operators)
@@ -561,8 +519,6 @@ class Tree:
         if current_arg:
             args.append("".join(current_arg))
         return args
-
-    
 
     @staticmethod
     def parse_expression(expression):
@@ -604,8 +560,6 @@ class Tree:
         empty.root = Tree.parse_expression(formula)
         # empty.compute_fitness()
         return empty
-
-    
     
     #if the branches are too deep (over max_depth) or force_collapse is set to True collapse the ones that do not contain variables replacing them with their constant value
     @staticmethod
